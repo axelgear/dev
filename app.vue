@@ -6,9 +6,10 @@
 
 <script setup>
 import { useThemeStore } from '~/stores/theme'
-import { onMounted, watch } from 'vue'
+import { onMounted, watch, ref } from 'vue'
 
 const themeStore = useThemeStore()
+const isDarkRef = ref(themeStore.isDark)
 
 // Initialize theme from localStorage on client side
 onMounted(() => {
@@ -16,7 +17,7 @@ onMounted(() => {
 })
 
 // Watch for theme changes and apply them
-watch(() => themeStore.isDark, (newVal) => {
+watch(isDarkRef, (newVal) => {
   if (newVal) {
     document.documentElement.classList.add('dark')
   } else {

@@ -14,10 +14,10 @@ export default defineNuxtConfig({
       link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
     },
   },
-  modules: ["@nuxtjs/tailwindcss", "@pinia/nuxt", "@nuxt/image", "@nuxtjs/seo", "@nuxtjs/sitemap", "@nuxtjs/robots"],
+  modules: ["@nuxtjs/tailwindcss", "@pinia/nuxt", "@nuxt/image"],
   css: ["~/assets/css/main.css"],
   pinia: {
-    storesDirs: ["./stores/**"],
+    autoImports: ["defineStore", "acceptHMRUpdate"],
   },
   imports: {
     dirs: ["stores"],
@@ -47,10 +47,6 @@ export default defineNuxtConfig({
       plugins: [require("@tailwindcss/typography")],
     },
   },
-  image: {
-    provider: "ipx",
-  },
-  ssr: true,
   nitro: {
     preset: "vercel",
   },

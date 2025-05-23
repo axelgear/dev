@@ -43,6 +43,6 @@ export const useBookmarksStore = defineStore("bookmarks", {
     },
   },
   persist: {
-    storage: typeof window !== "undefined" ? localStorage : undefined,
+    storage: process.client ? localStorage : undefined,
   },
 })

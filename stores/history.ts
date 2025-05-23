@@ -51,6 +51,6 @@ export const useHistoryStore = defineStore("history", {
     },
   },
   persist: {
-    storage: typeof window !== "undefined" ? localStorage : undefined,
+    storage: process.client ? localStorage : undefined,
   },
 })
